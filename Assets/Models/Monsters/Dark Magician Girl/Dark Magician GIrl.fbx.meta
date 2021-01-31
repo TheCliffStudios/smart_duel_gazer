@@ -76,10 +76,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|d
-      takeName: Armature|d
+      name: Armature|a
+      takeName: Armature|a
       internalID: 0
-      firstFrame: 0
+      firstFrame: 18
       lastFrame: 129
       wrapMode: 0
       orientationOffsetY: 0

@@ -47,11 +47,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Model_skeleton|MotionB (1)
-      takeName: Model_skeleton|MotionB
+      name: Model_skeleton|MotionA
+      takeName: Model_skeleton|MotionA
       internalID: 0
-      firstFrame: 0
-      lastFrame: 89
+      firstFrame: 37
+      lastFrame: 159
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

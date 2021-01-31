@@ -53,7 +53,7 @@ ModelImporter:
       name: Model_skeleton|MotionA
       takeName: Model_skeleton|MotionA
       internalID: 0
-      firstFrame: 0
+      firstFrame: 20
       lastFrame: 149
       wrapMode: 0
       orientationOffsetY: 0

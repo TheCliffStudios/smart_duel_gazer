@@ -10,7 +10,10 @@ namespace Project.Networking
     public class NetworkClient : SocketIOComponent
     {
         private const string RESOURCES_MONSTERS_FOLDER_NAME = "Monsters";
+        private const string SummoningTriggerName = "SummoningTrigger";
         private const string SUMMON_EVENT_NAME = "summonEvent";
+
+        private static readonly int SummoningAnimatorId = Animator.StringToHash(SummoningTriggerName);
 
         [SerializeField]
         private GameObject _interaction;
@@ -39,18 +42,27 @@ namespace Project.Networking
         {
             On(SUMMON_EVENT_NAME, (E) =>
             {
-                string id = E.data["yugiohCardId"].ToString().RemoveQuotes();
+                string yugiohCardId = E.data["yugiohCardId"].ToString().RemoveQuotes();
+                string zoneName = E.data["zoneName"].ToString().RemoveQuotes();
 
                 var arTapToPlaceObject = _interaction.GetComponent<ARTapToPlaceObject>();
                 var speedDuelField = arTapToPlaceObject.PlacedObject;
-                var cardModel = _cardModels.SingleOrDefault(cm => cm.name == id);
+                var zone = speedDuelField.transform.Find(zoneName);
 
-                if (cardModel != null)
+                var cardModel = _cardModels.SingleOrDefault(cm => cm.name == yugiohCardId);
+
+                if (cardModel != null && zone != null)
                 {
-                    Instantiate(cardModel, speedDuelField.transform.position, speedDuelField.transform.rotation);
+                    var instantiatedModel = Instantiate(cardModel, zone.transform.position, zone.transform.rotation);
+
+                    var animator = instantiatedModel.GetComponentInChildren<Animator>();
+                    if (animator != null)
+                    {
+                        animator.SetTrigger(SummoningAnimatorId);
+                    }
                 }
 
-                Debug.Log($"Card played with ID: {id}");
+                Debug.Log($"Card played with ID: {yugiohCardId}");
             });
         }
     }
