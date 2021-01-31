@@ -5,12 +5,22 @@ namespace Project.Player
     public class Zone
     {
         private ZoneType _zoneType;
-        private GameObject _cardModel;
+        public ZoneType ZoneType
+        {
+            get => _zoneType;
+            set => _zoneType = value;
+        }
 
-        public Zone(ZoneType zoneType, GameObject cardModel)
+        private GameObject _cardModel;
+        public GameObject CardModel
+        {
+            get => _cardModel;
+            set => _cardModel = value;
+        }
+
+        public Zone(ZoneType zoneType)
         {
             _zoneType = zoneType;
-            _cardModel = cardModel;
         }
     }
 }

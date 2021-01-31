@@ -12,18 +12,15 @@ namespace Project.Networking
     {
         private const string SUMMON_EVENT_NAME = "summonEvent";
 
-        [Header("Network Client")]
         [SerializeField]
-        private Transform _networkContainer;
-
-        // TODO: not sure lol
-        private Dictionary<string, GameObject> _serverObjects;
+        private GameObject _interaction;
+        [SerializeField]
+        private GameObject _bewd;
 
         public override void Start()
         {
             base.Start();
 
-            Initialize();
             SetupEvents();
         }
 
@@ -32,20 +29,15 @@ namespace Project.Networking
             base.Update();
         }
 
-        private void Initialize()
-        {
-            _serverObjects = new Dictionary<string, GameObject>();
-        }
-
         private void SetupEvents()
         {
             On(SUMMON_EVENT_NAME, (E) =>
             {
                 string id = E.data["yugiohCardId"].ToString().RemoveQuotes();
 
-                var go = new GameObject($"Card ID: {id}");
-                go.transform.SetParent(_networkContainer);
-                _serverObjects.Add(id, go);
+                var arTapToPlaceObject = _interaction.GetComponent<ARTapToPlaceObject>();
+                var speedDuelField = arTapToPlaceObject.SpeedDuelPlayMat;
+                Instantiate(_bewd, speedDuelField.transform);
 
                 Debug.Log($"Card played with ID: {id}");
             });
