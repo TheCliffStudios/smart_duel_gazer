@@ -218,7 +218,6 @@ MonoBehaviour:
   pingInterval: 25
   pingTimeout: 60
   _interaction: {fileID: 223974226}
-  _bewd: {fileID: 8432749048770286778, guid: 1c2fdee12ad2c436e9c4a1b1bbaa918d, type: 3}
 --- !u!4 &165585585
 Transform:
   m_ObjectHideFlags: 0
@@ -262,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1217d578c76e441cb184173dbbc4426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedDuelPlayMat: {fileID: 6480290508694421716, guid: b2715845fdb364faeb7b9eecf2dd2fa4, type: 3}
+  _objectToPlace: {fileID: 6480290508694421716, guid: b2715845fdb364faeb7b9eecf2dd2fa4, type: 3}
   _placementIndicator: {fileID: 633987594}
 --- !u!4 &223974228
 Transform:

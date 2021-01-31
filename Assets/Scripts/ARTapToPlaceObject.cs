@@ -6,15 +6,12 @@ using UnityEngine.XR.ARSubsystems;
 public class ARTapToPlaceObject : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _speedDuelPlayMat;
-
-    public GameObject SpeedDuelPlayMat
-    {
-        get => _objectIsPlaced ? _speedDuelPlayMat : null;
-    }
-
+    private GameObject _objectToPlace;
     [SerializeField]
     private GameObject _placementIndicator;
+
+    private GameObject _placedObject;
+    public GameObject PlacedObject => _placedObject;
 
     private Pose _placementPose;
     private ARRaycastManager _arRaycastManager;
@@ -76,6 +73,6 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         _objectIsPlaced = true;
         _placementIndicator.SetActive(false);
-        Instantiate(_speedDuelPlayMat, _placementPose.position, _placementPose.rotation);
+        _placedObject = Instantiate(_objectToPlace, _placementPose.position, _placementPose.rotation);
     }
 }
