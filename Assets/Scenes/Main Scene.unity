@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4218d01b33546aea8917c81d87dc8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: ws://192.168.0.106:52300/socket.io/?EIO=3&transport=websocket
+  networkInfo: {fileID: 11400000, guid: 854217a414dbd014fbfd694044d70c07, type: 2}
   autoConnect: 1
   reconnectDelay: 5
   ackExpirationTime: 30
